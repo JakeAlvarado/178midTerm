@@ -94,7 +94,7 @@ GLint GLScene::drawScene()    // this function runs on a loop
 GLvoid GLScene::resizeScene(GLsizei width, GLsizei height)
 {
     GLfloat aspectRatio = (GLfloat)width/(GLfloat)height; // keep track of the ratio
-    glViewport(0,0,width,height); // adjusting the viewport
+    glViewport(0,0,width,height); // adjusting the view port
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluPerspective(45,aspectRatio,0.1,100.0);

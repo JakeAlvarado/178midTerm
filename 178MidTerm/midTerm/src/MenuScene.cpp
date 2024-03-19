@@ -2,6 +2,8 @@
 #include <GLScene.h>
 #include <common.h>
 
+
+
 MenuScene::MenuScene()
 {
     //ctor

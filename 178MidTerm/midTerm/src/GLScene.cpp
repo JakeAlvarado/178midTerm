@@ -54,7 +54,7 @@ GLint GLScene::initGL()
 GLint GLScene::drawScene()    // this function runs on a loop
                               // DO NOT ABUSE ME
 {
-   glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);// clear bits in each itterration
+   glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);// clear bits in each iteration
    glLoadIdentity();
    glColor3f(1.0,1.0,1.0);     //color the object red
 

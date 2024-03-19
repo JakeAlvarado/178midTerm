@@ -63,7 +63,7 @@ GLint GLScene::drawScene()    // this function runs on a loop
    switch (menuState->gState)
    {
    case State_LandingPage:
-       glPushMatrix();
+       glPushMatrix();  //Loading static landing page with Title and Infographic
         glScalef(3.5,3.2,1.0);
         glDisable(GL_LIGHTING);
         landingPage->parallaxDraw(screenWidth, screenHeight);
@@ -71,7 +71,7 @@ GLint GLScene::drawScene()    // this function runs on a loop
        glPopMatrix();
        break;
    case State_MainMenu:
-       glPushMatrix();
+       glPushMatrix();      //Loading background w/ Parallax
         glScalef(3.5,3.2,1.0);
         glDisable(GL_LIGHTING);
         mainMenu->parallaxDraw(screenWidth, screenHeight);
@@ -79,7 +79,7 @@ GLint GLScene::drawScene()    // this function runs on a loop
         glEnable(GL_LIGHTING);
        glPopMatrix();
 
-       glPushMatrix();
+       glPushMatrix();  //Adding Start Button in front of Parallax Background
         startButton->drawObject();
        glPopMatrix();
        break;

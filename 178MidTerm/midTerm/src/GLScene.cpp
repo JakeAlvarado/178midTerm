@@ -10,7 +10,11 @@
 #include<GLCheckCollision.h>
 #include<MenuScene.h>
 
-MenuScene* Menu_State = new MenuScene();
+GLParallax *landingPage = new GLParallax();
+GLParallax *mainMenu = new GLParallax();
+GLTexture *startButton = new GLTexture();
+MenuScene *menuState = new MenuScene();
+
 
 GLScene::GLScene()
 {
@@ -41,6 +45,8 @@ GLint GLScene::initGL()
 
     glEnable(GL_TEXTURE_2D);  //enable textures
 
+    landingPage->parallaxInit("images/forestWithMushroomsLanding.png");
+    mainMenu->parallaxInit("images/forestWithMushrooms.png");
 
     return true;
 }
@@ -52,7 +58,30 @@ GLint GLScene::drawScene()    // this function runs on a loop
    glLoadIdentity();
    glColor3f(1.0,1.0,1.0);     //color the object red
 
-   Menu_State->display();
+   switch (menuState->gState)
+   {
+   case State_LandingPage:
+       glPushMatrix();
+        glScalef(3.5,3.2,1.0);
+        glDisable(GL_LIGHTING);
+        landingPage->parallaxDraw(screenWidth, screenHeight);
+        glEnable(GL_LIGHTING);
+       glPopMatrix();
+       break;
+   case State_MainMenu:
+       startButton->loadTexture("images/startButton.png"); // Stopped here, trying to load main menu buttons
+       glPushMatrix();
+        glScalef(3.5,3.2,1.0);
+        glDisable(GL_LIGHTING);
+        mainMenu->parallaxDraw(screenWidth, screenHeight);
+        mainMenu->parallaxScroll(true, "right", 0.0005);
+        glEnable(GL_LIGHTING);
+       glPopMatrix();
+       break;
+   case State_Game:
+    break;
+   }
+
 
    return true;
 }
@@ -73,7 +102,10 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     switch(uMsg)   // check for inputs
     {
     case WM_KEYDOWN:
-
+        if(wParam == VK_RETURN && menuState->gState == State_LandingPage)
+        {
+            menuState->gState = State_MainMenu;
+        }
          break;
 
     case WM_KEYUP:

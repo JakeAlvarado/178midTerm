@@ -80,6 +80,8 @@ GLint GLScene::drawScene()    // this function runs on a loop
        glPopMatrix();
 
        glPushMatrix();  //Adding Start Button in front of Parallax Background
+        // We can manipulate the position of our buttons via 'objPosition' before the drawObject function.
+        // NOTE: (-0.5, -0.2) = BTM_LEFT | (0.5, 0.2) = TOP_RIGHT | NO_CHANGE = SLIGHT BTM CENTER SCREEN
         startButton->drawObject();
        glPopMatrix();
        break;

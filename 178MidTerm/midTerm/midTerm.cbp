@@ -51,6 +51,7 @@
 		<Unit filename="include/GLInputs.h" />
 		<Unit filename="include/GLLight.h" />
 		<Unit filename="include/GLModel.h" />
+		<Unit filename="include/GLObject.h" />
 		<Unit filename="include/GLParallax.h" />
 		<Unit filename="include/GLPlayer.h" />
 		<Unit filename="include/GLScene.h" />
@@ -64,6 +65,7 @@
 		<Unit filename="src/GLInputs.cpp" />
 		<Unit filename="src/GLLight.cpp" />
 		<Unit filename="src/GLModel.cpp" />
+		<Unit filename="src/GLObject.cpp" />
 		<Unit filename="src/GLParallax.cpp" />
 		<Unit filename="src/GLPlayer.cpp" />
 		<Unit filename="src/GLScene.cpp" />

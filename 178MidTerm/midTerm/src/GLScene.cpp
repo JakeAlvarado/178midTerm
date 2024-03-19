@@ -8,11 +8,12 @@
 #include<GLEnms.h>
 #include<GLTimer.h>
 #include<GLCheckCollision.h>
+#include<GLObject.h>
 #include<MenuScene.h>
 
 GLParallax *landingPage = new GLParallax();
 GLParallax *mainMenu = new GLParallax();
-GLTexture *startButton = new GLTexture();
+GLObject *startButton = new GLObject();
 MenuScene *menuState = new MenuScene();
 
 
@@ -47,6 +48,7 @@ GLint GLScene::initGL()
 
     landingPage->parallaxInit("images/forestWithMushroomsLanding.png");
     mainMenu->parallaxInit("images/forestWithMushrooms.png");
+    startButton->initObject(1, 1, "images/StartButton.png");
 
     return true;
 }
@@ -69,13 +71,16 @@ GLint GLScene::drawScene()    // this function runs on a loop
        glPopMatrix();
        break;
    case State_MainMenu:
-       startButton->loadTexture("images/startButton.png"); // Stopped here, trying to load main menu buttons
        glPushMatrix();
         glScalef(3.5,3.2,1.0);
         glDisable(GL_LIGHTING);
         mainMenu->parallaxDraw(screenWidth, screenHeight);
         mainMenu->parallaxScroll(true, "right", 0.0005);
         glEnable(GL_LIGHTING);
+       glPopMatrix();
+
+       glPushMatrix();
+        startButton->drawObject();
        glPopMatrix();
        break;
    case State_Game:

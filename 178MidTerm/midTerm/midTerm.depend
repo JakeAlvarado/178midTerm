@@ -381,7 +381,7 @@
 1710879479 source:c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\src\glplayer.cpp
 	"GLPlayer.h"
 
-1710879740 source:c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\src\glscene.cpp
+1710882452 source:c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\src\glscene.cpp
 	<GLScene.h>
 	<GLLight.h>
 	<GLTexture.h>
@@ -392,6 +392,7 @@
 	<GLEnms.h>
 	<GLTimer.h>
 	<GLCheckCollision.h>
+	<GLObject.h>
 	<MenuScene.h>
 
 1710879920 c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\include\menuscene.h
@@ -405,5 +406,12 @@
 1710879931 source:c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\src\menuscene.cpp
 	"MenuScene.h"
 	<GLScene.h>
+	<common.h>
+
+1710881874 source:c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\src\globject.cpp
+	"GLObject.h"
+
+1710881752 c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\include\globject.h
+	<GLTexture.h>
 	<common.h>
 

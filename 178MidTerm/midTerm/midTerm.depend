@@ -415,7 +415,7 @@
 	<GLTexture.h>
 	<common.h>
 
-1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\main.cpp
+1710909156 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\main.cpp
 	<windows.h>
 	<GLScene.h>
 	<GL/gl.h>
@@ -425,7 +425,7 @@
 	<iostream>
 	<windows.h>
 
-1710904749 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\glscene.h
+1710909253 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\glscene.h
 	<common.h>
 
 1710904749 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\common.h
@@ -497,7 +497,7 @@
 1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glmodel.cpp
 	"GLModel.h"
 
-1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\globject.cpp
+1710907546 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\globject.cpp
 	"GLObject.h"
 
 1710904749 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\globject.h
@@ -510,7 +510,7 @@
 1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glplayer.cpp
 	"GLPlayer.h"
 
-1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glscene.cpp
+1710912883 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glscene.cpp
 	<GLScene.h>
 	<GLLight.h>
 	<GLTexture.h>
@@ -524,7 +524,7 @@
 	<GLObject.h>
 	<MenuScene.h>
 
-1710904749 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\menuscene.h
+1710910395 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\menuscene.h
 
 1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\gltexture.cpp
 	"GLTexture.h"

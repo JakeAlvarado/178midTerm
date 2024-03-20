@@ -14,6 +14,7 @@ class GLScene
         GLvoid resizeScene(GLsizei, GLsizei);
 
         int windMsg(HWND,UINT,WPARAM,LPARAM);  // take windows inputs
+        void handleMouseClick(int x, int y); // Registering mouse on main menu buttons
 
         WPARAM wParam;                         // keyboard/Mouse msg
 

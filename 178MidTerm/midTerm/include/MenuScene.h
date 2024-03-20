@@ -4,7 +4,8 @@
  enum State{
      State_LandingPage = 0,
      State_MainMenu = 1,
-     State_Game = 2
+     State_Game = 2,
+     State_Help = 3
     };
 
 class MenuScene

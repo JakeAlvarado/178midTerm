@@ -19,8 +19,8 @@ void GLObject::initObject(int x, int y, char* fileName)
     objPosition.y =-0.2;
     objPosition.z = -1.0;
 
-    objScale.x = 0.5;           // initialize scale
-    objScale.y = 0.5;
+    objScale.x = 0.25;           // initialize scale
+    objScale.y = 0.25;
     objScale.z = 1.0;
 
     framesX = x;               // record number of frames

@@ -14,6 +14,9 @@
 GLParallax *landingPage = new GLParallax();
 GLParallax *mainMenu = new GLParallax();
 GLObject *startButton = new GLObject();
+GLObject *helpButton = new GLObject();
+GLObject *exitButton = new GLObject();
+GLObject *titleBanner = new GLObject();
 MenuScene *menuState = new MenuScene();
 
 
@@ -36,7 +39,7 @@ GLint GLScene::initGL()
     glClearColor(0.0f,0.0f,0.0f,0.0f); // clear background to black
     glClearDepth(2.0f);            // depth test for layers
     glEnable(GL_DEPTH_TEST);       // activate depth test
-    glDepthFunc(GL_LEQUAL);         // depth function type
+    glDepthFunc(GL_LESS);         // depth function type
 
     GLLight Light(GL_LIGHT0);
     Light.setLight(GL_LIGHT0);
@@ -48,7 +51,11 @@ GLint GLScene::initGL()
 
     landingPage->parallaxInit("images/forestWithMushroomsLanding.png");
     mainMenu->parallaxInit("images/forestWithMushrooms.png");
-    startButton->initObject(1, 1, "images/NewGameBanner.png");
+    startButton->initObject(1, 1, "images/NewGameBannerBottles.png");
+    helpButton->initObject(1, 1, "images/HelpBanner.png");
+    exitButton->initObject(1, 1, "images/ExitBanner.png");
+    titleBanner->initObject(1, 1, "images/Title.png");
+
 
     return true;
 }
@@ -71,6 +78,7 @@ GLint GLScene::drawScene()    // this function runs on a loop
        glPopMatrix();
        break;
    case State_MainMenu:
+       glDisable(GL_DEPTH_TEST);
        glPushMatrix();      //Loading background w/ Parallax
         glScalef(3.5,3.2,1.0);
         glDisable(GL_LIGHTING);
@@ -82,8 +90,39 @@ GLint GLScene::drawScene()    // this function runs on a loop
        glPushMatrix();  //Adding Start Button in front of Parallax Background
         // We can manipulate the position of our buttons via 'objPosition' before the drawObject function.
         // NOTE: (-0.5, -0.2) = BTM_LEFT | (0.5, 0.2) = TOP_RIGHT | NO_CHANGE = SLIGHT BTM CENTER SCREEN
+        startButton->objPosition.y = -0.04;
+        glScalef(1.0, 1.0, 0.175);
+        glDisable(GL_LIGHTING);
         startButton->drawObject();
+        glEnable(GL_LIGHTING);
        glPopMatrix();
+
+       // Help Button
+       glPushMatrix();  //Adding Help Button in front of Parallax Background
+        helpButton->objPosition.y = -0.10; // Adjust Y position to separate from startButton
+        glScalef(1.0, 1.0, 0.175); // Adjust scale as needed
+        glDisable(GL_LIGHTING);
+        helpButton->drawObject();
+        glEnable(GL_LIGHTING);
+       glPopMatrix();
+
+        // Exit Button
+       glPushMatrix();  //Adding Exit Button in front of Parallax Background
+        exitButton->objPosition.y = -0.15; // Adjust Y position to separate from helpButton
+        glScalef(1.0, 1.0, 0.175); // Adjust scale as needed
+        glDisable(GL_LIGHTING);
+        exitButton->drawObject();
+        glEnable(GL_LIGHTING);
+       glPopMatrix();
+
+       glPushMatrix();  //Adding Title Header in front of Parallax Background
+        titleBanner->objPosition.y = 0.02; // Adjust Y position to separate from helpButton
+        glScalef(1.0, 1.0, 0.175); // Adjust scale as needed
+        glDisable(GL_LIGHTING);
+        titleBanner->drawObject();
+        glEnable(GL_LIGHTING);
+       glPopMatrix();
+
        break;
    case State_Game:
     break;
@@ -104,14 +143,47 @@ GLvoid GLScene::resizeScene(GLsizei width, GLsizei height)
     glLoadIdentity();
 }
 
+
 int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     switch(uMsg)   // check for inputs
     {
     case WM_KEYDOWN:
-        if(wParam == VK_RETURN && menuState->gState == State_LandingPage)
+        switch(wParam)
         {
-            menuState->gState = State_MainMenu;
+            case VK_RETURN:
+                {
+                    if(menuState->gState == State_LandingPage)
+                        {
+                            menuState->gState = State_MainMenu;
+                        }
+                    break;
+                }
+            case 'N':
+                {
+                    if(menuState->gState == State_MainMenu)
+                        {
+                            cout << "Start New Game" << endl;
+                        }
+                    break;
+                }
+            case 'H':
+                {
+                    if(menuState->gState == State_MainMenu)
+                        {
+                            cout << "Here's How to Play!" << endl;
+                        }
+                    break;
+                }
+            case 'L':
+                {
+                    if(menuState->gState == State_MainMenu)
+                        {
+                            menuState->gState = State_LandingPage;
+                        }
+                    break;
+                }
+
         }
          break;
 
@@ -120,6 +192,12 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
          break;
 
     case WM_LBUTTONDOWN:
+        {
+            int mouseX = LOWORD(lParam);
+            int mouseY = HIWORD(lParam);
+            this->handleMouseClick(mouseX, mouseY);
+            return 0;
+        }
 
          break;
 
@@ -141,6 +219,11 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
        break;
     }
+}
+void GLScene::handleMouseClick(int x, int y)
+{
+
+
 }
 
 

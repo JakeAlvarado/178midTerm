@@ -116,7 +116,7 @@ GLint GLScene::drawScene()    // this function runs on a loop
        glPopMatrix();
 
        glPushMatrix();  //Adding Title Header in front of Parallax Background
-        titleBanner->objPosition.y = 0.02; // Adjust Y position to separate from helpButton
+        titleBanner->objPosition.y = 0.035; // Adjust Y position to separate from helpButton
         glScalef(1.0, 1.0, 0.175); // Adjust scale as needed
         glDisable(GL_LIGHTING);
         titleBanner->drawObject();

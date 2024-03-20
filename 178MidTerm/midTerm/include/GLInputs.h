@@ -12,7 +12,7 @@ class GLInputs
         GLInputs();
         virtual ~GLInputs();
 
-        void keyPress(GLModel *, GLPlayer*);  // when key pressed
+        void keyPress(GLPlayer*);  // when key pressed
         void keyUP(GLPlayer*);               // when key released
         void keyBackground(GLParallax *, float);//parallax model & speed
 

@@ -16,34 +16,30 @@ GLInputs::~GLInputs()
 {
     //dtor
 }
-void GLInputs::keyPress(GLModel* Model, GLPlayer* pl)
+void GLInputs::keyPress(GLPlayer* pl)
 {
     switch(wParam)
     {
     case VK_LEFT:
         pl->actionTrigger= pl->WALKLEFT;
-        Model->RotateY +=1.0;
         break;
 
     case VK_RIGHT:
         pl->actionTrigger = pl->WALKRIGHT;
-        Model->RotateY -=1.0;
         break;
 
     case VK_DOWN:
-        Model->RotateX +=1.0;
+        pl->actionTrigger = pl->WALKDOWN;
         break;
 
     case VK_UP:
-        Model->RotateX -=1.0;
+        pl->actionTrigger = pl->WALKUP;
         break;
 
     case VK_ADD:
-        Model->zPos +=1.0;
         break;
 
     case VK_SUBTRACT:
-        Model->zPos -=1.0;
         break;
     }
 }

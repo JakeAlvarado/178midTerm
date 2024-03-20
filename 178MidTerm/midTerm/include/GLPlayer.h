@@ -11,7 +11,7 @@ class GLPlayer
         GLPlayer();
         virtual ~GLPlayer();
 
-        enum {STAND, WALKLEFT,WALKRIGHT, RUN, JUMP, ATTACK};
+        enum {STAND, WALKLEFT,WALKRIGHT, WALKDOWN, WALKUP, RUN, JUMP, ATTACK};
 
         GLTexture *texture = new GLTexture();
         GLTimer   *myTime = new GLTimer();

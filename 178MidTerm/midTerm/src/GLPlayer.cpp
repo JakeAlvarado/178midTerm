@@ -74,27 +74,65 @@ void GLPlayer::actions()
 
        xMin =0;
        xMax = 1.0/(float)framesX;
-       yMax =2.0/(float)framesY;
+       yMax =1.0/(float)framesY;
        yMin =yMax-1.0/(float)framesY;
 
        break;
 
    case WALKLEFT:
 
-       xMax =0;
+    if(clock() - myTime->startTime > 60)
+    {
+        if(xMin < 1)
+        {
+            xMin += 1.0/(float)framesX;
+            xMax += 1.0/(float)framesX;
+        }
+        else
+        {
+            xMax = 0.0;
+            xMin = 1.0/(float)framesX;
+            yMax = 5.0/(float)framesY;
+            yMin = yMax - 1.0/(float)framesY;
+        }
+
+
+
+
+        myTime->startTime =clock();
+    }
+
+       /*xMax =0;
        xMin = 1.0/(float)framesX;
 
        yMax =1.0/(float)framesY;
        yMin =yMax-1.0/(float)framesY;
 
        xMax += 1.0/(float)framesX;
-       xMin += 1.0/(float)framesX;
+       xMin += 1.0/(float)framesX;*/
        break;
 
    case WALKRIGHT:
-    if(clock() - myTime->startTime>60)
-   {
-       if(xMax <1) {
+
+    if(clock() - myTime->startTime > 60)
+    {
+        if(xMax < 1)
+        {
+            xMin += 1.0/(float)framesX;
+            xMax += 1.0/(float)framesX;
+        }
+        else
+        {
+            xMin = 0.0;
+            xMax = 1.0/(float)framesX;
+            yMax = 5.0/(float)framesY;
+            yMin = yMax - 1.0/(float)framesY;
+        }
+
+        myTime->startTime =clock();
+    }
+    break;
+       /*if(xMax <1) {
        xMin += 1.0/(float)framesX;
        xMax += 1.0/(float)framesX;
        }
@@ -114,12 +152,35 @@ void GLPlayer::actions()
              yMax =1.0/(float)framesY;
          }
 
-       }
-     myTime->startTime =clock();
+       }*/
+
+   case WALKUP:
+
+    if(clock() - myTime->startTime>60)
+   {
+       yMax = 6.0/(float)framesY;
+       yMin = yMax - 1.0/(float)framesY;
+
+       xMin += 1.0/(float)framesX;
+       xMax += 1.0/(float)framesX;
+
+    myTime->startTime =clock();
    }
+    break;
 
-       break;
+   case WALKDOWN:
 
+     if(clock() - myTime->startTime>60)
+   {
+       yMax = 4.0/(float)framesY;
+       yMin = yMax - 1.0/(float)framesY;
+
+       xMin += 1.0/(float)framesX;
+       xMax += 1.0/(float)framesX;
+
+    myTime->startTime =clock();
+   }
+    break;
 
    case RUN: break;
    case JUMP: break;

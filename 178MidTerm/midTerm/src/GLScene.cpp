@@ -12,6 +12,7 @@
 #include<MenuScene.h>
 
 //Initializing Objects based on classes (parallax (static or background images), object (image that needs to be in front of background), MenuScene (state controller for navigation)
+GLInputs *KbMs = new GLInputs();
 GLParallax *landingPage = new GLParallax();
 GLParallax *mainMenu = new GLParallax();
 GLParallax *helpPage = new GLParallax();
@@ -21,6 +22,7 @@ GLObject *helpButton = new GLObject();
 GLObject *exitButton = new GLObject();
 GLObject *titleBanner = new GLObject();
 MenuScene *menuState = new MenuScene();
+GLPlayer *player = new GLPlayer();
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 GLScene::GLScene()
@@ -60,6 +62,8 @@ GLint GLScene::initGL()
     helpButton->initObject(1, 1, "images/HelpBanner.png"); // Load help button object texture
     exitButton->initObject(1, 1, "images/ExitBanner.png"); // Load exit button object texture
     titleBanner->initObject(1, 1, "images/Title.png"); // Load title banner object texture
+    player->initPlayer(6, 10, "images/player.png"); // Load player texture
+    player->actionTrigger = player->STAND; // Player does not move until player makes a keypress
 
 
     return true;
@@ -143,6 +147,13 @@ GLint GLScene::drawScene()    // this function runs on a loop
         glEnable(GL_LIGHTING);
        glPopMatrix();
 
+       glPushMatrix();
+        glScalef(0.5, 0.5, 1.0);
+        glDisable(GL_LIGHTING);
+        player->drawPlayer();
+        player->actions();
+        glEnable(GL_LIGHTING);
+       glPopMatrix();
 
 
        break;
@@ -179,6 +190,8 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     switch(uMsg)   // check for inputs
     {
     case WM_KEYDOWN: // On Player key press
+        KbMs->wParam = wParam;
+        KbMs->keyPress(player);
         switch(wParam)
         {
             case VK_RETURN: // if press is 'Enter'

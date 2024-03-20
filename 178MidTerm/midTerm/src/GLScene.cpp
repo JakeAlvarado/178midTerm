@@ -23,6 +23,7 @@ GLObject *exitButton = new GLObject();
 GLObject *titleBanner = new GLObject();
 MenuScene *menuState = new MenuScene();
 GLPlayer *player = new GLPlayer();
+bool isPaused = false;
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 GLScene::GLScene()
@@ -212,10 +213,6 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                     {
                         requestExit = true;     // Send request to exit, (main watches this via a function call 'ShouldExit()' quits game if true
                     }
-                    else if (menuState->gState == State_Game)
-                    {
-                        menuState->gState = State_MainMenu;
-                    }
                     break;
                 }
             case 'N': // if press is 'N'
@@ -247,6 +244,24 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
          break;
 
     case WM_KEYUP:
+
+        switch (wParam)
+        {
+        case VK_ESCAPE:
+            if (menuState->gState == State_Game)
+            {
+                if(isPaused == false)
+                {
+                    isPaused = true;
+                }
+                else if (isPaused == true)
+                {
+                    requestExit = true;
+                }
+
+            }
+            break;
+        }
 
          break;
 

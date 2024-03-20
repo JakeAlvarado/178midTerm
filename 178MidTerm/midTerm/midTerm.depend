@@ -507,10 +507,10 @@
 1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glparallax.cpp
 	"GLParallax.h"
 
-1710971543 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glplayer.cpp
+1710971820 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glplayer.cpp
 	"GLPlayer.h"
 
-1710970124 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glscene.cpp
+1710972930 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glscene.cpp
 	<GLScene.h>
 	<GLLight.h>
 	<GLTexture.h>
@@ -524,7 +524,7 @@
 	<GLObject.h>
 	<MenuScene.h>
 
-1710910395 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\menuscene.h
+1710972320 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\menuscene.h
 
 1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\gltexture.cpp
 	"GLTexture.h"

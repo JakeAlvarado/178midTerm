@@ -415,3 +415,125 @@
 	<GLTexture.h>
 	<common.h>
 
+1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\main.cpp
+	<windows.h>
+	<GLScene.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<GL/glut.h>
+	<stdlib.h>
+	<iostream>
+	<windows.h>
+
+1710904749 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\glscene.h
+	<common.h>
+
+1710904749 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\common.h
+	<windows.h>
+	<iostream>
+	<gl/gl.h>
+	<GL/glut.h>
+	<time.h>
+	<math.h>
+	<vector>
+	<SOIL.h>
+
+1710904749 c:\users\jake\documents\github\178midterm\178midterm\common\include\gl\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1710904749 c:\users\jake\documents\github\178midterm\178midterm\common\include\soil.h
+
+1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glcheckcollision.cpp
+	"GLCheckCollision.h"
+
+1710904749 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\glcheckcollision.h
+	<common.h>
+
+1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glenms.cpp
+	"GLEnms.h"
+
+1710904749 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\glenms.h
+	<common.h>
+	<GLTexture.h>
+	<GLTimer.h>
+
+1710904749 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\gltexture.h
+	<common.h>
+
+1710904749 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\gltimer.h
+	<common.h>
+
+1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glinputs.cpp
+	"GLInputs.h"
+
+1710904749 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\glinputs.h
+	<GLModel.h>
+	<GLParallax.h>
+	<GLPlayer.h>
+	<common.h>
+
+1710904749 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\glmodel.h
+	<common.h>
+
+1710904749 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\glparallax.h
+	<common.h>
+	<GLTexture.h>
+	<GLTimer.h>
+
+1710904749 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\glplayer.h
+	<common.h>
+	<GLTexture.h>
+	<GLTimer.h>
+
+1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\gllight.cpp
+	"GLLight.h"
+
+1710904749 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\gllight.h
+	<GLScene.h>
+
+1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glmodel.cpp
+	"GLModel.h"
+
+1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\globject.cpp
+	"GLObject.h"
+
+1710904749 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\globject.h
+	<GLTexture.h>
+	<common.h>
+
+1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glparallax.cpp
+	"GLParallax.h"
+
+1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glplayer.cpp
+	"GLPlayer.h"
+
+1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glscene.cpp
+	<GLScene.h>
+	<GLLight.h>
+	<GLTexture.h>
+	<GLModel.h>
+	<GLInputs.h>
+	<GLParallax.h>
+	<GLPlayer.h>
+	<GLEnms.h>
+	<GLTimer.h>
+	<GLCheckCollision.h>
+	<GLObject.h>
+	<MenuScene.h>
+
+1710904749 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\menuscene.h
+
+1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\gltexture.cpp
+	"GLTexture.h"
+
+1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\gltimer.cpp
+	"GLTimer.h"
+
+1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\menuscene.cpp
+	"MenuScene.h"
+	<GLScene.h>
+	<common.h>
+

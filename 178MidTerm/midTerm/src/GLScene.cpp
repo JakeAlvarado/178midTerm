@@ -48,7 +48,7 @@ GLint GLScene::initGL()
 
     landingPage->parallaxInit("images/forestWithMushroomsLanding.png");
     mainMenu->parallaxInit("images/forestWithMushrooms.png");
-    startButton->initObject(1, 1, "images/StartButton.png");
+    startButton->initObject(1, 1, "images/NewGameBanner.png");
 
     return true;
 }

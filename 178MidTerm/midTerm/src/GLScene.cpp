@@ -15,6 +15,7 @@
 GLParallax *landingPage = new GLParallax();
 GLParallax *mainMenu = new GLParallax();
 GLParallax *helpPage = new GLParallax();
+GLParallax *tutorialMap = new GLParallax();
 GLObject *startButton = new GLObject();
 GLObject *helpButton = new GLObject();
 GLObject *exitButton = new GLObject();
@@ -53,7 +54,8 @@ GLint GLScene::initGL()
 
     landingPage->parallaxInit("images/forestWithMushroomsLanding.png"); // Load static Landing image
     mainMenu->parallaxInit("images/forestWithMushrooms.png"); // load parallax main menu image
-    helpPage->parallaxInit("images/helpPage.png"); // Load static help page iamge
+    helpPage->parallaxInit("images/helpPage.png"); // Load static help page image
+    tutorialMap->parallaxInit("images/SpawnNoEnmHighRes.png"); // Load tutorial map
     startButton->initObject(1, 1, "images/NewGameBannerBottles.png"); // Load start button object texture
     helpButton->initObject(1, 1, "images/HelpBanner.png"); // Load help button object texture
     exitButton->initObject(1, 1, "images/ExitBanner.png"); // Load exit button object texture
@@ -72,7 +74,8 @@ GLint GLScene::drawScene()    // this function runs on a loop
 
    switch (menuState->gState)
    {
-   case State_LandingPage:
+   case State_LandingPage: // Landing Page State
+
        glPushMatrix();  //Loading static landing page with Title and Info graphic
         glScalef(3.5,3.2,1.0);
         glDisable(GL_LIGHTING);
@@ -80,7 +83,9 @@ GLint GLScene::drawScene()    // this function runs on a loop
         glEnable(GL_LIGHTING);
        glPopMatrix();
        break;
-   case State_MainMenu:
+
+   case State_MainMenu: // Main Menu State
+
        glDisable(GL_DEPTH_TEST); // Disabling depth_test since 2D game and was messing with parallax layering
 
        glPushMatrix();      //Loading background w/ Parallax
@@ -128,9 +133,22 @@ GLint GLScene::drawScene()    // this function runs on a loop
        glPopMatrix();
 
        break;
-   case State_Game:
+
+   case State_Game: // Game State
+
+       glPushMatrix();      //Loading tutorial map
+        glScalef(3.5,3.5,1.0);
+        glDisable(GL_LIGHTING);
+        tutorialMap->parallaxDraw(screenWidth, screenHeight);
+        glEnable(GL_LIGHTING);
+       glPopMatrix();
+
+
+
        break;
-   case State_Help:
+
+   case State_Help: // Help State
+
        glPushMatrix();  //Loading static help page
         glScalef(3.2,3.2,1.0);
         glDisable(GL_LIGHTING);
@@ -181,13 +199,17 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                     {
                         requestExit = true;     // Send request to exit, (main watches this via a function call 'ShouldExit()' quits game if true
                     }
+                    else if (menuState->gState == State_Game)
+                    {
+                        menuState->gState = State_MainMenu;
+                    }
                     break;
                 }
             case 'N': // if press is 'N'
                 {
                     if(menuState->gState == State_MainMenu) // And if the current state is Main Menu
                         {
-                            cout << "Start New Game" << endl;   // Start a new game
+                            menuState->gState = State_Game;
                         }
                     break;
                 }

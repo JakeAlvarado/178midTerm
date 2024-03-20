@@ -11,7 +11,7 @@
 #include<GLObject.h>
 #include<MenuScene.h>
 
-
+//Initializing Objects based on classes (parallax (static or background images), object (image that needs to be in front of background), MenuScene (state controller for navigation)
 GLParallax *landingPage = new GLParallax();
 GLParallax *mainMenu = new GLParallax();
 GLParallax *helpPage = new GLParallax();
@@ -20,7 +20,7 @@ GLObject *helpButton = new GLObject();
 GLObject *exitButton = new GLObject();
 GLObject *titleBanner = new GLObject();
 MenuScene *menuState = new MenuScene();
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 GLScene::GLScene()
 {
@@ -51,13 +51,13 @@ GLint GLScene::initGL()
 
     glEnable(GL_TEXTURE_2D);  //enable textures
 
-    landingPage->parallaxInit("images/forestWithMushroomsLanding.png");
-    mainMenu->parallaxInit("images/forestWithMushrooms.png");
-    helpPage->parallaxInit("images/helpPage.png");
-    startButton->initObject(1, 1, "images/NewGameBannerBottles.png");
-    helpButton->initObject(1, 1, "images/HelpBanner.png");
-    exitButton->initObject(1, 1, "images/ExitBanner.png");
-    titleBanner->initObject(1, 1, "images/Title.png");
+    landingPage->parallaxInit("images/forestWithMushroomsLanding.png"); // Load static Landing image
+    mainMenu->parallaxInit("images/forestWithMushrooms.png"); // load parallax main menu image
+    helpPage->parallaxInit("images/helpPage.png"); // Load static help page iamge
+    startButton->initObject(1, 1, "images/NewGameBannerBottles.png"); // Load start button object texture
+    helpButton->initObject(1, 1, "images/HelpBanner.png"); // Load help button object texture
+    exitButton->initObject(1, 1, "images/ExitBanner.png"); // Load exit button object texture
+    titleBanner->initObject(1, 1, "images/Title.png"); // Load title banner object texture
 
 
     return true;
@@ -73,7 +73,7 @@ GLint GLScene::drawScene()    // this function runs on a loop
    switch (menuState->gState)
    {
    case State_LandingPage:
-       glPushMatrix();  //Loading static landing page with Title and Infographic
+       glPushMatrix();  //Loading static landing page with Title and Info graphic
         glScalef(3.5,3.2,1.0);
         glDisable(GL_LIGHTING);
         landingPage->parallaxDraw(screenWidth, screenHeight);
@@ -81,7 +81,8 @@ GLint GLScene::drawScene()    // this function runs on a loop
        glPopMatrix();
        break;
    case State_MainMenu:
-       glDisable(GL_DEPTH_TEST);
+       glDisable(GL_DEPTH_TEST); // Disabling depth_test since 2D game and was messing with parallax layering
+
        glPushMatrix();      //Loading background w/ Parallax
         glScalef(3.5,3.2,1.0);
         glDisable(GL_LIGHTING);
@@ -159,50 +160,50 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     switch(uMsg)   // check for inputs
     {
-    case WM_KEYDOWN:
+    case WM_KEYDOWN: // On Player key press
         switch(wParam)
         {
-            case VK_RETURN:
+            case VK_RETURN: // if press is 'Enter'
                 {
-                    if(menuState->gState == State_LandingPage)
+                    if(menuState->gState == State_LandingPage) // And if the current state is at the Landing Page
                         {
-                            menuState->gState = State_MainMenu;
+                            menuState->gState = State_MainMenu; // Change to Main Menu page
                         }
                     break;
                 }
-            case VK_ESCAPE:
+            case VK_ESCAPE:     // if press is 'Esc'
                 {
-                    if(menuState->gState == State_Help)
+                    if(menuState->gState == State_Help) // And if the current state is at the help page
                     {
-                        menuState->gState = State_MainMenu;
+                        menuState->gState = State_MainMenu; // go back to the main menu
                     }
-                    else if (menuState->gState == State_MainMenu)
+                    else if (menuState->gState == State_MainMenu) // Or if the current state is the Main Menu
                     {
-                        requestExit = true;
+                        requestExit = true;     // Send request to exit, (main watches this via a function call 'ShouldExit()' quits game if true
                     }
                     break;
                 }
-            case 'N':
+            case 'N': // if press is 'N'
                 {
-                    if(menuState->gState == State_MainMenu)
+                    if(menuState->gState == State_MainMenu) // And if the current state is Main Menu
                         {
-                            cout << "Start New Game" << endl;
+                            cout << "Start New Game" << endl;   // Start a new game
                         }
                     break;
                 }
-            case 'H':
+            case 'H':   // if press is 'H'
                 {
-                    if(menuState->gState == State_MainMenu)
+                    if(menuState->gState == State_MainMenu) // and current state is Main Menu
                         {
-                            menuState->gState = State_Help;
+                            menuState->gState = State_Help;    // Switch to Help page
                         }
                     break;
                 }
-            case 'L':
+            case 'L':   // if press is 'L'
                 {
-                    if(menuState->gState == State_MainMenu)
+                    if(menuState->gState == State_MainMenu)     // And current state is Main Menu
                         {
-                            menuState->gState = State_LandingPage;
+                            menuState->gState = State_LandingPage; // Go back to Landing Page
                         }
                     break;
                 }

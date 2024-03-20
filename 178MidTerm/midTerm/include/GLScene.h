@@ -9,6 +9,7 @@ class GLScene
     public:
         GLScene();
         virtual ~GLScene();
+        bool shouldExit() {return requestExit;}
         GLint initGL();
         GLint drawScene();
         GLvoid resizeScene(GLsizei, GLsizei);
@@ -24,6 +25,7 @@ class GLScene
     protected:
 
     private:
+        bool requestExit = false;
 };
 
 #endif // GLSCENE_H

@@ -11,8 +11,10 @@
 #include<GLObject.h>
 #include<MenuScene.h>
 
+
 GLParallax *landingPage = new GLParallax();
 GLParallax *mainMenu = new GLParallax();
+GLParallax *helpPage = new GLParallax();
 GLObject *startButton = new GLObject();
 GLObject *helpButton = new GLObject();
 GLObject *exitButton = new GLObject();
@@ -51,6 +53,7 @@ GLint GLScene::initGL()
 
     landingPage->parallaxInit("images/forestWithMushroomsLanding.png");
     mainMenu->parallaxInit("images/forestWithMushrooms.png");
+    helpPage->parallaxInit("images/helpPage.png");
     startButton->initObject(1, 1, "images/NewGameBannerBottles.png");
     helpButton->initObject(1, 1, "images/HelpBanner.png");
     exitButton->initObject(1, 1, "images/ExitBanner.png");
@@ -125,7 +128,15 @@ GLint GLScene::drawScene()    // this function runs on a loop
 
        break;
    case State_Game:
-    break;
+       break;
+   case State_Help:
+       glPushMatrix();  //Loading static help page
+        glScalef(3.2,3.2,1.0);
+        glDisable(GL_LIGHTING);
+        helpPage->parallaxDraw(screenWidth, screenHeight);
+        glEnable(GL_LIGHTING);
+       glPopMatrix();
+       break;
    }
 
 
@@ -159,6 +170,18 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                         }
                     break;
                 }
+            case VK_ESCAPE:
+                {
+                    if(menuState->gState == State_Help)
+                    {
+                        menuState->gState = State_MainMenu;
+                    }
+                    else if (menuState->gState == State_MainMenu)
+                    {
+                        requestExit = true;
+                    }
+                    break;
+                }
             case 'N':
                 {
                     if(menuState->gState == State_MainMenu)
@@ -171,7 +194,7 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 {
                     if(menuState->gState == State_MainMenu)
                         {
-                            cout << "Here's How to Play!" << endl;
+                            menuState->gState = State_Help;
                         }
                     break;
                 }

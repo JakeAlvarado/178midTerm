@@ -415,7 +415,7 @@
 	<GLTexture.h>
 	<common.h>
 
-1710909156 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\main.cpp
+1710967461 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\main.cpp
 	<windows.h>
 	<GLScene.h>
 	<GL/gl.h>
@@ -425,7 +425,7 @@
 	<iostream>
 	<windows.h>
 
-1710909253 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\glscene.h
+1710967545 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\glscene.h
 	<common.h>
 
 1710904749 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\common.h
@@ -510,7 +510,7 @@
 1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glplayer.cpp
 	"GLPlayer.h"
 
-1710913081 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glscene.cpp
+1710967332 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glscene.cpp
 	<GLScene.h>
 	<GLLight.h>
 	<GLTexture.h>

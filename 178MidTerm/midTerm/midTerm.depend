@@ -293,7 +293,7 @@
 
 1710791229 c:\users\jake\desktop\midterm-1 (1)\midterm\include\menuscene.h
 
-1710879479 source:c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\main.cpp
+1710973055 source:c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\main.cpp
 	<windows.h>
 	<GLScene.h>
 	<GL/gl.h>
@@ -303,7 +303,7 @@
 	<iostream>
 	<windows.h>
 
-1710879479 c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\include\glscene.h
+1710975541 c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\include\glscene.h
 	<common.h>
 
 1710879479 c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\include\common.h
@@ -344,10 +344,10 @@
 1710879479 c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\include\gltimer.h
 	<common.h>
 
-1710879479 source:c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\src\glinputs.cpp
+1710973055 source:c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\src\glinputs.cpp
 	"GLInputs.h"
 
-1710879479 c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\include\glinputs.h
+1710973055 c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\include\glinputs.h
 	<GLModel.h>
 	<GLParallax.h>
 	<GLPlayer.h>
@@ -361,7 +361,7 @@
 	<GLTexture.h>
 	<GLTimer.h>
 
-1710879479 c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\include\glplayer.h
+1710973055 c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\include\glplayer.h
 	<common.h>
 	<GLTexture.h>
 	<GLTimer.h>
@@ -378,10 +378,10 @@
 1710879479 source:c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\src\glparallax.cpp
 	"GLParallax.h"
 
-1710879479 source:c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\src\glplayer.cpp
+1710973055 source:c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\src\glplayer.cpp
 	"GLPlayer.h"
 
-1710882452 source:c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\src\glscene.cpp
+1710980561 source:c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\src\glscene.cpp
 	<GLScene.h>
 	<GLLight.h>
 	<GLTexture.h>
@@ -395,7 +395,7 @@
 	<GLObject.h>
 	<MenuScene.h>
 
-1710879920 c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\include\menuscene.h
+1710973055 c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\include\menuscene.h
 
 1710879479 source:c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\src\gltexture.cpp
 	"GLTexture.h"
@@ -408,7 +408,7 @@
 	<GLScene.h>
 	<common.h>
 
-1710881874 source:c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\src\globject.cpp
+1710973055 source:c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\src\globject.cpp
 	"GLObject.h"
 
 1710881752 c:\users\jakea\onedrive\desktop\178midterm\178midterm\midterm\include\globject.h

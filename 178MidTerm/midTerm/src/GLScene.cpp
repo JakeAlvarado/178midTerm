@@ -253,6 +253,7 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 if(isPaused == false)
                 {
                     isPaused = true;
+                    pauseGame();
                 }
                 else if (isPaused == true)
                 {
@@ -269,7 +270,6 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         {
             int mouseX = LOWORD(lParam);
             int mouseY = HIWORD(lParam);
-            this->handleMouseClick(mouseX, mouseY);
             return 0;
         }
 
@@ -294,10 +294,29 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
        break;
     }
 }
-void GLScene::handleMouseClick(int x, int y)
+GLint GLScene::pauseGame()
 {
 
+    cout << "Hello" << endl;
 
+     // Help Button
+       glPushMatrix();  //Adding Help Button in front of Parallax Background
+        helpButton->objPosition.y = -0.10; // Adjust Y position to separate from startButton
+        glScalef(1.0, 1.0, 0.175); // Adjust scale as needed
+        glDisable(GL_LIGHTING);
+        helpButton->drawObject();
+        glEnable(GL_LIGHTING);
+       glPopMatrix();
+
+        // Exit Button
+       glPushMatrix();  //Adding Exit Button in front of Parallax Background
+        exitButton->objPosition.y = -0.15; // Adjust Y position to separate from helpButton
+        glScalef(1.0, 1.0, 0.175); // Adjust scale as needed
+        glDisable(GL_LIGHTING);
+        exitButton->drawObject();
+        glEnable(GL_LIGHTING);
+       glPopMatrix();
 }
+
 
 

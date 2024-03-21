@@ -30,6 +30,7 @@ class GLInputs
 
         WPARAM wParam;           // catching input interrupts
 
+
     protected:
 
     private:

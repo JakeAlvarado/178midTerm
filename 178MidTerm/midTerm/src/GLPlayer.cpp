@@ -194,3 +194,28 @@ void GLPlayer::actions()
    default: break;
    }
 }
+void GLPlayer::update()
+{
+    if (keyStates[VK_LEFT] || keyStates['A'])
+    {
+        this->actionTrigger = WALKLEFT;
+    }
+    else if (keyStates[VK_UP] || keyStates['W'])
+    {
+        this->actionTrigger = WALKUP;
+    }
+    else if (keyStates[VK_DOWN] || keyStates['S'])
+    {
+        this->actionTrigger = WALKDOWN;
+    }
+    else if (keyStates[VK_RIGHT] || keyStates['D'])
+    {
+        this->actionTrigger = WALKRIGHT;
+    }
+    else
+    {
+        this->actionTrigger = STAND;
+    }
+
+    this->actions();
+}

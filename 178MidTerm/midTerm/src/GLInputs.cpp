@@ -20,19 +20,23 @@ void GLInputs::keyPress(GLPlayer* pl)
 {
     switch(wParam)
     {
-    case VK_LEFT:
+    case VK_LEFT :
+    case 'A':
         pl->actionTrigger= pl->WALKLEFT;
         break;
 
     case VK_RIGHT:
+    case 'D':
         pl->actionTrigger = pl->WALKRIGHT;
         break;
 
     case VK_DOWN:
+    case 'S':
         pl->actionTrigger = pl->WALKDOWN;
         break;
 
     case VK_UP:
+    case 'W':
         pl->actionTrigger = pl->WALKUP;
         break;
 

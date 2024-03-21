@@ -4,6 +4,7 @@
 #include<common.h>
 #include<GLTexture.h>
 #include<GLTimer.h>
+#include<map>
 
 class GLPlayer
 {
@@ -19,6 +20,7 @@ class GLPlayer
         void initPlayer(int,int,char* fileName); // number of x, y frames
         void drawPlayer();
         void actions();
+        void update();
 
         vec3 plPosition;
         vec3 plScale;
@@ -28,6 +30,8 @@ class GLPlayer
         int framesX,framesY;
 
         int actionTrigger;  // for load actions
+
+        std::map<int, bool> keyStates; // Hash map for O(1) lookup.
 
     protected:
 

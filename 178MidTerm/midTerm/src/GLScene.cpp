@@ -10,7 +10,6 @@
 #include<GLCheckCollision.h>
 #include<GLObject.h>
 #include<MenuScene.h>
-
 //Initializing Objects based on classes (parallax (static or background images), object (image that needs to be in front of background), MenuScene (state controller for navigation)
 GLInputs *KbMs = new GLInputs();
 GLParallax *landingPage = new GLParallax();
@@ -201,8 +200,10 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     switch(uMsg)   // check for inputs
     {
     case WM_KEYDOWN: // On Player key press
-        KbMs->wParam = wParam;
-        KbMs->keyPress(player);
+        //KbMs->wParam = wParam;
+        //KbMs->keyPress(player);
+        player->keyStates[wParam] = true;
+        player->update();
         switch(wParam)
         {
             case VK_RETURN: // if press is 'Enter'
@@ -258,8 +259,11 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
          break;
 
     case WM_KEYUP:
-        KbMs->wParam = wParam;
-        KbMs->keyUP(player);
+        //KbMs->wParam = wParam;
+        //KbMs->keyUP(player);
+        player->keyStates[wParam] = false;
+        player->update();
+
         switch (wParam)
         {
         case VK_ESCAPE:

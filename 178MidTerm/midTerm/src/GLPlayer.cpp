@@ -95,6 +95,7 @@ void GLPlayer::actions()
             yMax = 5.0/(float)framesY;
             yMin = yMax - 1.0/(float)framesY;
         }
+        this->plPosition.x -= 0.05;
 
 
 
@@ -128,6 +129,7 @@ void GLPlayer::actions()
             yMax = 5.0/(float)framesY;
             yMin = yMax - 1.0/(float)framesY;
         }
+        this->plPosition.x += 0.05;
 
         myTime->startTime =clock();
     }
@@ -164,6 +166,8 @@ void GLPlayer::actions()
        xMin += 1.0/(float)framesX;
        xMax += 1.0/(float)framesX;
 
+       this->plPosition.y += 0.05;
+
     myTime->startTime =clock();
    }
     break;
@@ -177,6 +181,8 @@ void GLPlayer::actions()
 
        xMin += 1.0/(float)framesX;
        xMax += 1.0/(float)framesX;
+
+       this->plPosition.y -= 0.05;
 
     myTime->startTime =clock();
    }

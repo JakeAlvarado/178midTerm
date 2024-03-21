@@ -425,7 +425,7 @@
 	<iostream>
 	<windows.h>
 
-1710967545 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\glscene.h
+1710984567 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\glscene.h
 	<common.h>
 
 1710904749 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\common.h
@@ -466,7 +466,7 @@
 1710904749 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\gltimer.h
 	<common.h>
 
-1710970818 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glinputs.cpp
+1710988108 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glinputs.cpp
 	"GLInputs.h"
 
 1710969994 c:\users\jake\documents\github\178midterm\178midterm\midterm\include\glinputs.h
@@ -507,10 +507,10 @@
 1710904749 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glparallax.cpp
 	"GLParallax.h"
 
-1710971820 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glplayer.cpp
+1710987701 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glplayer.cpp
 	"GLPlayer.h"
 
-1710972930 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glscene.cpp
+1710988056 source:c:\users\jake\documents\github\178midterm\178midterm\midterm\src\glscene.cpp
 	<GLScene.h>
 	<GLLight.h>
 	<GLTexture.h>

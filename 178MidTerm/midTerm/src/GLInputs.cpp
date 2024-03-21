@@ -41,6 +41,7 @@ void GLInputs::keyPress(GLPlayer* pl)
 
     case VK_SUBTRACT:
         break;
+    default: break;
     }
 }
 

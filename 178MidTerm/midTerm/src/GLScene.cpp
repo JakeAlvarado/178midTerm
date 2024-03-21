@@ -17,6 +17,7 @@ GLParallax *landingPage = new GLParallax();
 GLParallax *mainMenu = new GLParallax();
 GLParallax *helpPage = new GLParallax();
 GLParallax *tutorialMap = new GLParallax();
+GLParallax *pausePopup = new GLParallax();
 GLObject *startButton = new GLObject();
 GLObject *helpButton = new GLObject();
 GLObject *exitButton = new GLObject();
@@ -59,6 +60,7 @@ GLint GLScene::initGL()
     mainMenu->parallaxInit("images/forestWithMushrooms.png"); // load parallax main menu image
     helpPage->parallaxInit("images/helpPage.png"); // Load static help page image
     tutorialMap->parallaxInit("images/SpawnNoEnmHighRes.png"); // Load tutorial map
+    pausePopup->parallaxInit("images/PauseMenuDone.png"); // Pause menu popup during game
     startButton->initObject(1, 1, "images/NewGameBannerBottles.png"); // Load start button object texture
     helpButton->initObject(1, 1, "images/HelpBanner.png"); // Load help button object texture
     exitButton->initObject(1, 1, "images/ExitBanner.png"); // Load exit button object texture
@@ -73,10 +75,18 @@ GLint GLScene::initGL()
 GLint GLScene::drawScene()    // this function runs on a loop
                               // DO NOT ABUSE ME
 {
-   glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);// clear bits in each iteration
-   glLoadIdentity();
-   glColor3f(1.0,1.0,1.0);     //color the object red
 
+   if (isPaused)
+   {
+       pauseGame();
+       return true;
+   }
+   else
+   {
+       glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);// clear bits in each iteration
+       glLoadIdentity();
+       glColor3f(1.0,1.0,1.0);     //color the object red
+   }
    switch (menuState->gState)
    {
    case State_LandingPage: // Landing Page State
@@ -201,6 +211,10 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                         {
                             menuState->gState = State_MainMenu; // Change to Main Menu page
                         }
+                    else if(isPaused == true)
+                    {
+                        requestExit = true;
+                    }
                     break;
                 }
             case VK_ESCAPE:     // if press is 'Esc'
@@ -244,7 +258,8 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
          break;
 
     case WM_KEYUP:
-
+        KbMs->wParam = wParam;
+        KbMs->keyUP(player);
         switch (wParam)
         {
         case VK_ESCAPE:
@@ -253,13 +268,11 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 if(isPaused == false)
                 {
                     isPaused = true;
-                    pauseGame();
                 }
-                else if (isPaused == true)
+                else if(isPaused == true)
                 {
-                    requestExit = true;
+                    isPaused = false;
                 }
-
             }
             break;
         }
@@ -297,25 +310,12 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 GLint GLScene::pauseGame()
 {
 
-    cout << "Hello" << endl;
-
-     // Help Button
-       glPushMatrix();  //Adding Help Button in front of Parallax Background
-        helpButton->objPosition.y = -0.10; // Adjust Y position to separate from startButton
-        glScalef(1.0, 1.0, 0.175); // Adjust scale as needed
+     glPushMatrix();      //Loading background w/ Parallax
+        glScalef(3.5,3.5,1.0);
         glDisable(GL_LIGHTING);
-        helpButton->drawObject();
+        pausePopup->parallaxDraw(screenWidth, screenHeight);
         glEnable(GL_LIGHTING);
-       glPopMatrix();
-
-        // Exit Button
-       glPushMatrix();  //Adding Exit Button in front of Parallax Background
-        exitButton->objPosition.y = -0.15; // Adjust Y position to separate from helpButton
-        glScalef(1.0, 1.0, 0.175); // Adjust scale as needed
-        glDisable(GL_LIGHTING);
-        exitButton->drawObject();
-        glEnable(GL_LIGHTING);
-       glPopMatrix();
+     glPopMatrix();
 }
 
 
